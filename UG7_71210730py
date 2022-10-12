@@ -23,6 +23,7 @@ class UndoRedo:
         self.backupStack = StackList() #stack ini sebagai tempat menyimpan data yang di hapus
     def write(self,data):
         self.mainStack.push(data)
+        print(self.mainStack.stack_data[-1], '\n')
     def undo(self):
         if self.mainStack.size() == 0 :
             print('Perintah Undo Tidka Dapat Di Lakukan')
@@ -44,12 +45,12 @@ class UndoRedo:
             print('Data diredo :',self.backupStack.stack_data[-1])
             self.backupStack.stack_data.pop()
             for i in range (len(self.mainStack.stack_data)):
-                print(self.mainStack.stack_data[i], end=" \n")
+                print(self.mainStack.stack_data[i], end=" ")
             print()
             
     def printInfo(self):
         for i in range (len(self.mainStack.stack_data)):
-            print(self.mainStack.stack_data[i], end=" \n")
+            print(self.mainStack.stack_data[i], end=" ")
         print()
 if __name__ == '__main__':
     obj_undoredo = UndoRedo()
