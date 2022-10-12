@@ -25,7 +25,8 @@ class UndoRedo:
         self.mainStack.push(data)
     def undo(self):
         if self.mainStack.size() == 0 :
-            return 0
+            print('Perintah Undo Tidka Dapat Di Lakukan')
+            print('Data Undo: None')
         else :
             self.backupStack.push(self.mainStack.stack_data[-1])
             print('Data diundo :',self.mainStack.stack_data[-1])
@@ -36,7 +37,8 @@ class UndoRedo:
             
     def redo(self):
         if self.backupStack.size() == 0:
-            return 0
+            print('Perintah Redo Tidka Dapat Di Lakukan')
+            print('Data Undo: None')
         else :
             self.mainStack.push(self.backupStack.stack_data[-1])
             print('Data diredo :',self.backupStack.stack_data[-1])
